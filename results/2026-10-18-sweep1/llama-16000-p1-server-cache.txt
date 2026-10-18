@@ -1,0 +1,31 @@
+0.20.064.285 I load_tensors: offloaded 49/49 layers to GPU
+0.23.012.041 I impl:      CUDA0 MoE cache size = 15995.02 MiB for 23981.25 MiB of host experts
+0.23.012.044 I impl: 14 layers, iq4_nl:  2390 slots (66.7%)
+0.23.012.044 I impl:  5 layers, q2_0:   853 slots (66.6%)
+0.23.012.045 I impl: 15 layers, iq4_nl:  2561 slots (66.7%)
+0.23.012.045 I impl:  3 layers, q2_0:   511 slots (66.5%)
+0.23.012.045 I impl:  9 layers, iq4_nl:  1536 slots (66.7%)
+0.23.012.046 I impl:  1 layers, q2_0:   169 slots (66.0%)
+0.23.012.048 I impl:  1 layers, iq4_nl:   169 slots (66.0%)
+0.23.048.813 I sched_reserve: graph (pp bs=512, tg bs=4): nodes = 6915 / 7244, splits = 144 / 50, input objects = 6 / 6, input tensors = 19 / 19
+1.14.914.772 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 1, n_diff = 0
+1.15.060.118 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 2, n_diff = 0
+1.29.698.000 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 3, n_diff = 0
+1.29.739.030 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 4, n_diff = 0
+1.39.415.108 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 5, n_diff = 0
+1.39.454.159 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 6, n_diff = 0
+1.48.768.431 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 7, n_diff = 0
+2.47.284.526 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 8, n_diff = 0
+2.50.782.313 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 9, n_diff = 0
+2.53.891.503 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 10, n_diff = 0
+2.57.093.918 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 11, n_diff = 0
+3.00.239.156 I sched_graph_realloc: graph reallocation: nodes = 7378 (changed = 0), splits = 145, n_same = 12, n_diff = 0
+3.25.995.940 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 13, n_diff = 0
+3.26.099.657 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 14, n_diff = 0
+3.38.680.935 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 15, n_diff = 0
+3.38.733.276 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 16, n_diff = 0
+3.48.187.971 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 17, n_diff = 0
+3.48.236.384 I sched_graph_realloc: graph reallocation: nodes = 7474 (changed = 0), splits = 50, n_same = 18, n_diff = 0
+3.49.238.548 I llama_moe_cache: ubatch <= 8: hits = 1074443, misses = 40680, hit rate = 96.35%, uploaded = 78740.19 MiB
+3.49.238.550 I llama_moe_cache: ubatch  > 8: hits = 3420, misses = 2648, hit rate = 56.36%, uploaded = 5176.51 MiB
+3.49.238.551 I llama_moe_cache: large batches: 174009 experts copied from the cache, 113051.54 MiB

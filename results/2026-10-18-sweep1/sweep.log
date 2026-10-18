@@ -1,0 +1,86 @@
+11:24:40 START
+11:24:40 llama-24000-p1: start
+11:25:10 llama-24000-p1: up; V100 29531 MiB; CUDA0 MoE cache size = 23988.87 MiB for 23981.25 MiB of host experts
+llama-24000-p1   256 run 1: first token 15.32 s, writing 10.9 tok/s, 256 tokens
+llama-24000-p1   256 run 2: first token 0.29 s, writing 36.8 tok/s, 256 tokens
+llama-24000-p1   256 run 3: first token 0.20 s, writing 37.9 tok/s, 256 tokens
+llama-24000-p1  1000 run 1: first token 8.69 s, writing 34.4 tok/s, 256 tokens
+llama-24000-p1  1000 run 2: first token 0.16 s, writing 39.8 tok/s, 256 tokens
+llama-24000-p1  1000 run 3: first token 0.16 s, writing 39.7 tok/s, 256 tokens
+llama-24000-p1  4096 run 1: first token 17.20 s, writing 36.3 tok/s, 256 tokens
+llama-24000-p1  4096 run 2: first token 0.17 s, writing 38.4 tok/s, 256 tokens
+llama-24000-p1  4096 run 3: first token 0.16 s, writing 38.1 tok/s, 256 tokens
+11:27:21 llama-24000-p1: done; ubatch <= 8: hits = 1106026, misses = 9100, hit rate = 99.18%, uploaded = 17733.37 MiB ubatch  > 8: hits = 4254, misses = 1899, hit rate = 69.14%, uploaded = 3708.67 MiB 
+11:27:21 strata-0141-p1: start
+11:28:02 strata-0141-p1: up; V100 32007 MiB
+strata-0141-p1   256 run 1: first token 1.04 s, writing 79.8 tok/s, 256 tokens
+strata-0141-p1   256 run 2: first token 0.11 s, writing 94.9 tok/s, 256 tokens
+strata-0141-p1   256 run 3: first token 0.10 s, writing 96.7 tok/s, 256 tokens
+strata-0141-p1  1000 run 1: first token 1.61 s, writing 85.4 tok/s, 256 tokens
+strata-0141-p1  1000 run 2: first token 0.10 s, writing 84.9 tok/s, 256 tokens
+strata-0141-p1  1000 run 3: first token 0.10 s, writing 90.6 tok/s, 256 tokens
+strata-0141-p1  4096 run 1: first token 3.46 s, writing 79.8 tok/s, 256 tokens
+strata-0141-p1  4096 run 2: first token 0.10 s, writing 81.1 tok/s, 256 tokens
+strata-0141-p1  4096 run 3: first token 0.10 s, writing 81.9 tok/s, 256 tokens
+11:28:41 strata-0141-p1: done
+11:28:41 llama-20000-p1: start
+11:29:27 llama-20000-p1: up; V100 25537 MiB; CUDA0 MoE cache size = 19994.24 MiB for 23981.25 MiB of host experts
+llama-20000-p1   256 run 1: first token 16.79 s, writing 11.5 tok/s, 256 tokens
+llama-20000-p1   256 run 2: first token 0.22 s, writing 38.7 tok/s, 256 tokens
+llama-20000-p1   256 run 3: first token 0.17 s, writing 39.5 tok/s, 256 tokens
+llama-20000-p1  1000 run 1: first token 7.83 s, writing 33.3 tok/s, 256 tokens
+llama-20000-p1  1000 run 2: first token 0.68 s, writing 38.0 tok/s, 256 tokens
+llama-20000-p1  1000 run 3: first token 0.16 s, writing 39.1 tok/s, 256 tokens
+llama-20000-p1  4096 run 1: first token 17.78 s, writing 32.2 tok/s, 256 tokens
+llama-20000-p1  4096 run 2: first token 0.17 s, writing 38.3 tok/s, 256 tokens
+llama-20000-p1  4096 run 3: first token 0.16 s, writing 38.4 tok/s, 256 tokens
+11:31:39 llama-20000-p1: done; ubatch <= 8: hits = 1105163, misses = 9960, hit rate = 99.11%, uploaded = 19294.80 MiB ubatch  > 8: hits = 4074, misses = 1994, hit rate = 67.14%, uploaded = 3894.82 MiB 
+11:31:39 llama-16000-p1: start
+11:32:10 llama-16000-p1: up; V100 21537 MiB; CUDA0 MoE cache size = 15995.02 MiB for 23981.25 MiB of host experts
+llama-16000-p1   256 run 1: first token 14.26 s, writing 9.6 tok/s, 256 tokens
+llama-16000-p1   256 run 2: first token 0.74 s, writing 18.7 tok/s, 256 tokens
+llama-16000-p1   256 run 3: first token 0.32 s, writing 27.3 tok/s, 256 tokens
+llama-16000-p1  1000 run 1: first token 13.11 s, writing 15.4 tok/s, 256 tokens
+llama-16000-p1  1000 run 2: first token 0.35 s, writing 18.1 tok/s, 256 tokens
+llama-16000-p1  1000 run 3: first token 0.23 s, writing 27.3 tok/s, 256 tokens
+llama-16000-p1  4096 run 1: first token 35.50 s, writing 13.9 tok/s, 256 tokens
+llama-16000-p1  4096 run 2: first token 0.35 s, writing 22.1 tok/s, 256 tokens
+llama-16000-p1  4096 run 3: first token 0.27 s, writing 27.8 tok/s, 256 tokens
+11:35:34 llama-16000-p1: done; ubatch <= 8: hits = 1074443, misses = 40680, hit rate = 96.35%, uploaded = 78740.19 MiB ubatch  > 8: hits = 3420, misses = 2648, hit rate = 56.36%, uploaded = 5176.51 MiB 
+11:35:34 llama-8000-p1: start
+11:35:59 llama-8000-p1: up; V100 13537 MiB; CUDA0 MoE cache size =  7995.36 MiB for 23981.25 MiB of host experts
+llama-8000-p1   256 run 1: first token 14.82 s, writing 4.7 tok/s, 256 tokens
+llama-8000-p1   256 run 2: first token 2.17 s, writing 5.2 tok/s, 256 tokens
+llama-8000-p1   256 run 3: first token 2.07 s, writing 5.4 tok/s, 256 tokens
+llama-8000-p1  1000 run 1: first token 29.03 s, writing 5.2 tok/s, 256 tokens
+llama-8000-p1  1000 run 2: first token 2.38 s, writing 5.4 tok/s, 256 tokens
+llama-8000-p1  1000 run 3: first token 2.03 s, writing 5.8 tok/s, 256 tokens
+llama-8000-p1  4096 run 1: first token 63.21 s, writing 5.1 tok/s, 256 tokens
+llama-8000-p1  4096 run 2: first token 1.64 s, writing 5.2 tok/s, 256 tokens
+llama-8000-p1  4096 run 3: first token 1.94 s, writing 5.2 tok/s, 256 tokens
+11:45:27 llama-8000-p1: done; ubatch <= 8: hits = 923035, misses = 192089, hit rate = 82.77%, uploaded = 374651.17 MiB ubatch  > 8: hits = 1882, misses = 4137, hit rate = 31.27%, uploaded = 8070.34 MiB 
+11:45:27 strata-0141-p2: start
+11:46:20 strata-0141-p2: up; V100 32007 MiB
+strata-0141-p2   256 run 1: first token 1.07 s, writing 79.7 tok/s, 256 tokens
+strata-0141-p2   256 run 2: first token 0.11 s, writing 94.9 tok/s, 256 tokens
+strata-0141-p2   256 run 3: first token 0.10 s, writing 96.6 tok/s, 256 tokens
+strata-0141-p2  1000 run 1: first token 1.61 s, writing 83.2 tok/s, 256 tokens
+strata-0141-p2  1000 run 2: first token 0.10 s, writing 86.8 tok/s, 256 tokens
+strata-0141-p2  1000 run 3: first token 0.10 s, writing 90.3 tok/s, 256 tokens
+strata-0141-p2  4096 run 1: first token 3.45 s, writing 85.0 tok/s, 256 tokens
+strata-0141-p2  4096 run 2: first token 0.10 s, writing 82.4 tok/s, 256 tokens
+strata-0141-p2  4096 run 3: first token 0.10 s, writing 81.9 tok/s, 256 tokens
+11:46:58 strata-0141-p2: done
+11:46:59 llama-24000-p2: start
+11:47:45 llama-24000-p2: up; V100 29531 MiB; CUDA0 MoE cache size = 23988.87 MiB for 23981.25 MiB of host experts
+llama-24000-p2   256 run 1: first token 31.34 s, writing 9.5 tok/s, 256 tokens
+llama-24000-p2   256 run 2: first token 0.23 s, writing 38.3 tok/s, 256 tokens
+llama-24000-p2   256 run 3: first token 0.20 s, writing 39.8 tok/s, 256 tokens
+llama-24000-p2  1000 run 1: first token 8.10 s, writing 34.2 tok/s, 256 tokens
+llama-24000-p2  1000 run 2: first token 0.16 s, writing 38.5 tok/s, 256 tokens
+llama-24000-p2  1000 run 3: first token 0.16 s, writing 38.8 tok/s, 256 tokens
+llama-24000-p2  4096 run 1: first token 17.12 s, writing 36.3 tok/s, 256 tokens
+llama-24000-p2  4096 run 2: first token 0.18 s, writing 38.6 tok/s, 256 tokens
+llama-24000-p2  4096 run 3: first token 0.16 s, writing 38.7 tok/s, 256 tokens
+11:50:14 llama-24000-p2: done; ubatch <= 8: hits = 1106026, misses = 9100, hit rate = 99.18%, uploaded = 17733.37 MiB ubatch  > 8: hits = 4254, misses = 1899, hit rate = 69.14%, uploaded = 3708.67 MiB 
+11:50:14 ALL DONE; V100 11 MiB

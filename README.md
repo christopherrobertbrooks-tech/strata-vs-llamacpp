@@ -27,6 +27,25 @@ for an expert cache, and one llama.cpp's write-up did not test (its tests had th
 3. **Reference:** Strata on the same prompts.
 4. **Result:** a curve of llama.cpp speed against cache size, with Strata as the line to beat.
 
-## Status
+## First sweep (2026-10-18)
 
-Started 2026-10-18. No results yet.
+Writing speed, tokens/s, median of the warm runs (runs 2-3; each run 1 is a cold start), 256 tokens out, drafts as each
+engine ships them (Strata: MTP on, ~70% accepted; llama.cpp: none available for this model). Hit rate = llama.cpp's
+own count for single-token steps.
+
+| setting | cache hit rate | uploaded to the card | 256 | 1000 | 4096 |
+|---|---|---|---|---|---|
+| llama.cpp, 24 GB cache (all experts) | 99.2% | 17.7 GB | 38.2 | 39.2 | 38.5 |
+| llama.cpp, 20 GB | 99.1% | 19.3 GB | 39.1 | 38.6 | 38.4 |
+| llama.cpp, 16 GB | 96.4% | 78.7 GB | 23.0 | 22.7 | 25.0 |
+| llama.cpp, 8 GB | 82.8% | 374.7 GB | 5.3 | 5.6 | 5.2 |
+| **Strata 0.1.41** (everyday) | ~95% in VRAM, rest in locked RAM | - | **95.8** | **88.2** | **81.8** |
+
+- Flat down to 20 GB, a cliff between 20 and 16 GB (3 points of hit rate = 4x the traffic over a PCIe Gen3 x4 slot),
+  collapse at 8 GB.
+- Even with every expert on the card llama.cpp writes at ~39 tok/s, about half of Strata. Its decode graph has 50
+  splits per token (one per layer: the cache maps the router's picks on the CPU).
+- Not yet fair: Strata drafts and llama.cpp can't here; prompt reading isn't measured right (the same prompt three
+  times, and the longer prompts share their start: both engines reuse it).
+
+Next: drafts off for both, llama.cpp with everything on the GPU and no cache (the control), fresh prompts.

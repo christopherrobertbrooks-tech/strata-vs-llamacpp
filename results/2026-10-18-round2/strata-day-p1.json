@@ -1,0 +1,110 @@
+[
+ {
+  "ttft_s": 0.9573078155517578,
+  "tokens": 256,
+  "chunks": 246,
+  "decode_tok_s": 86.75345520131383,
+  "elapsed_s": 3.8974385261535645,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific mathematical formula to produce a new integer.\n\nHere is a breakdown of each function:\n\n### `transform_0000(x: int) -> int`\n*   **Formula:** `(x * 7 + 3) % 101`\n*   **Operation:** Multiplies the input by 7, adds 3, and takes the remainder when divided by 101.\n*   **Purpose:** This is the first step in a chain of transformations. It maps any integer into the range `[0, 100]`.\n\n### `transform_0001(x: int) -> int`\n*   **Formula:** `(x * 20 + 32) % 118`\n*   **Operation:** Multiplies the input by 20, adds 32, and takes the remainder when divided by 118.\n*   **Purpose:** This is the second step. It maps any integer into the range `[0, 117]`.\n\n###",
+  "size": 256,
+  "run": 1,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 0.9313821792602539,
+  "tokens": 256,
+  "chunks": 247,
+  "decode_tok_s": 95.7933256110953,
+  "elapsed_s": 3.5942113399505615,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific mathematical operation to produce a new integer.\n\nHere is a function-by-function explanation:\n\n### `transform_0000(x: int) -> int`\n*   **Operation:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input `x` by **7**, adds **3**, and then takes the remainder when divided by **101**.\n*   **Mathematical Form:** $f_0(x) = (7x + 3) \\pmod{101}$\n\n### `transform_0001(x: int) -> int`\n*   **Operation:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input `x` by **20**, adds **32**, and takes the remainder modulo **118**.\n*   **Mathematical Form:** $f_1(x) = (20x + 32) \\p",
+  "size": 256,
+  "run": 2,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 0.9236428737640381,
+  "tokens": 256,
+  "chunks": 247,
+  "decode_tok_s": 92.36943368264326,
+  "elapsed_s": 3.685070514678955,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific linear formula `(x * a + b) % m`, where `a` is a multiplier, `b` is an additive constant, and `m` is the modulus.\n\nHere is a breakdown of each function:\n\n### `transform_0000(x: int) -> int`\n*   **Formula:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input by 7, adds 3, and takes the remainder when divided by 101.\n*   **Parameters:** Multiplier = 7, Addend = 3, Modulus = 101.\n\n### `transform_0001(x: int) -> int`\n*   **Formula:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input by 20, adds 32, and takes the remainder when divided by 118.\n*   **Parameters:** Multiplier =",
+  "size": 256,
+  "run": 3,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.558544397354126,
+  "tokens": 256,
+  "chunks": 246,
+  "decode_tok_s": 88.53257506351382,
+  "elapsed_s": 4.43959903717041,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each implementing a **linear congruential transformation** of the form:\n\n$$\nf(x) = (a \\cdot x + b) \\mod m\n$$\n\nwhere $a$, $b$, and $m$ are constants specific to each function. These functions are likely part of a **multi-step cryptographic or hashing pipeline**, where each step applies a different linear transformation modulo a different modulus.\n\n### Function-by-Function Explanation\n\nEach function takes an integer `x` and returns a new integer computed as `(x * a + b) % m`. Here's a breakdown of each:\n\n| Function | Step | Formula | Modulus (m) | Multiplier (a) | Addend (b) |\n|----------|------|---------|-------------|----------------|------------|\n| `transform_0000` | 0 | `(x * 7 + 3) % 101` | 101 | 7 | 3 |\n| `transform_0001` | 1 | `(x * 20 + ",
+  "size": 1000,
+  "run": 1,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.5369665622711182,
+  "tokens": 256,
+  "chunks": 243,
+  "decode_tok_s": 87.94247674643573,
+  "elapsed_s": 4.437313079833984,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each implementing a **linear congruential transformation** of the form:\n\n$$\nf(x) = (a \\cdot x + b) \\mod m\n$$\n\nwhere $a$, $b$, and $m$ are constants specific to each function. These functions are likely part of a larger cryptographic or pseudorandom number generation pipeline, where each step applies a different linear transformation modulo a different modulus.\n\nBelow is a function-by-function explanation:\n\n---\n\n### `transform_0000(x: int) -> int`\n- **Formula:** `(x * 7 + 3) % 101`\n- **Parameters:** $a=7$, $b=3$, $m=101$\n- **Description:** Applies a linear transformation modulo 101.\n\n### `transform_0001(x: int) -> int`\n- **Formula:** `(x * 20 + 32) % 118`\n- **Parameters:** $a=20$, $b=32$, $m",
+  "size": 1000,
+  "run": 2,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.5361237525939941,
+  "tokens": 256,
+  "chunks": 243,
+  "decode_tok_s": 91.85756603466831,
+  "elapsed_s": 4.3128228187561035,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each implementing a **linear congruential transformation** of the form:\n\n$$\nf(x) = (a \\cdot x + b) \\mod m\n$$\n\nwhere $a$, $b$, and $m$ are constants specific to each function. These functions are likely part of a larger cryptographic or pseudorandom number generation pipeline, where each step applies a different linear transformation modulo a different modulus.\n\nBelow is a function-by-function explanation:\n\n---\n\n### `transform_0000(x: int) -> int`\n- **Formula:** `(x * 7 + 3) % 101`\n- **Parameters:** $a = 7$, $b = 3$, $m = 101$\n- **Description:** Applies a linear transformation modulo 101.\n\n### `transform_0001(x: int) -> int`\n- **Formula:** `(x * 20 + 32) % 118`\n- **Parameters:** $a = 20$, $b = ",
+  "size": 1000,
+  "run": 3,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 3.456766366958618,
+  "tokens": 256,
+  "chunks": 238,
+  "decode_tok_s": 83.14537534795902,
+  "elapsed_s": 6.524471282958984,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters change systematically for each step. Below is a breakdown of the first few and the last few functions to illustrate the pattern, followed by a summary of the entire sequence.\n\n### Function-by-Function Explanation\n\n#### Step 0\n```python\ndef transform_0000(x: int) -> int:\n    return (x * 7 + 3) % 101\n```\n- **Formula:** $f(x) = (7x + 3) \\pmod{101}$\n- **Parameters:** Multiplier $A=7$, Additive $B=3$, Modulus $M=101$.\n\n#### Step 1\n```python",
+  "size": 4096,
+  "run": 1,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 3.389754295349121,
+  "tokens": 256,
+  "chunks": 238,
+  "decode_tok_s": 84.7641904761301,
+  "elapsed_s": 6.398912191390991,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters change systematically for each step. Below is a breakdown of the first few and the last few functions to illustrate the pattern, followed by a summary of the entire sequence.\n\n### Function-by-Function Explanation\n\n#### Step 0\n```python\ndef transform_0000(x: int) -> int:\n    return (x * 7 + 3) % 101\n```\n- **Formula:** $f(x) = (7x + 3) \\pmod{101}$\n- **Parameters:** Multiplier $A=7$, Additive $B=3$, Modulus $M=101$.\n\n#### Step 1\n```python",
+  "size": 4096,
+  "run": 2,
+  "label": "strata-day-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 3.4312727451324463,
+  "tokens": 256,
+  "chunks": 242,
+  "decode_tok_s": 94.35485057661089,
+  "elapsed_s": 6.134559631347656,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Formula\nEach function follows the pattern:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\n### Function-by-Function Breakdown\n\nHere is the breakdown of the parameters $(A, B, M)$ for each function:\n\n| Function | Step | Multiplier (A) | Additive (B) | Modulus (M) |\n| :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 |\n| `transform_0001` | 1 | 20 | 32 | 118 |\n| `transform_0002` | 2 | 33 | 61 | 135",
+  "size": 4096,
+  "run": 3,
+  "label": "strata-day-p1",
+  "fresh": true
+ }
+]

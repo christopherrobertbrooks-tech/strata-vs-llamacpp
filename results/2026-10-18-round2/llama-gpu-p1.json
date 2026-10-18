@@ -1,0 +1,110 @@
+[
+ {
+  "ttft_s": 1.0996785163879395,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 42.37367787222038,
+  "elapsed_s": 7.117645978927612,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as linear congruential generators or LCGs) applied sequentially. Each function takes an integer `x` and returns a new integer computed using the formula:\n\n```\nf(x) = (a * x + c) % m\n```\n\nwhere:\n- `a` is a multiplier,\n- `c` is an increment,\n- `m` is a modulus.\n\nThese are commonly used in pseudorandom number generation, hashing, or cryptographic contexts (though simple LCGs like these are not cryptographically secure).\n\nLet\u2019s go through each function:\n\n---\n\n### `transform_0000(x: int) -> int`\n```python\nreturn (x * 7 + 3) % 101\n```\n- **Multiplier**: 7  \n- **Increment**: 3  \n- **Modulus**: 101  \n- **Purpose**: Applies a linear transformation modulo 101. This is Step 0 of the sequence.\n\n---\n\n### `transform_0001(x: int) -> int`\n```python\nreturn (x * 20 + 32)",
+  "size": 256,
+  "run": 1,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.0506572723388672,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 42.93793381645429,
+  "elapsed_s": 6.989542007446289,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific linear formula `(x * a + b) % m`, where `a` is a multiplier, `b` is an additive constant, and `m` is the modulus.\n\nHere is a breakdown of each function:\n\n### `transform_0000(x: int) -> int`\n*   **Formula:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input by 7, adds 3, and takes the remainder when divided by 101.\n*   **Parameters:** Multiplier = 7, Addend = 3, Modulus = 101.\n\n### `transform_0001(x: int) -> int`\n*   **Formula:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input by 20, adds 32, and takes the remainder when divided by 118.\n*   **Parameters:** Multiplier =",
+  "size": 256,
+  "run": 2,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.0537760257720947,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 43.02106868757622,
+  "elapsed_s": 6.981175184249878,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific mathematical operation to produce a new integer.\n\nHere is a function-by-function explanation:\n\n### `transform_0000(x: int) -> int`\n*   **Operation:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input `x` by **7**, adds **3**, and then takes the remainder when divided by **101**.\n*   **Mathematical Form:** $f_0(x) = (7x + 3) \\pmod{101}$\n\n### `transform_0001(x: int) -> int`\n*   **Operation:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input `x` by **20**, adds **32**, and takes the remainder modulo **118**.\n*   **Mathematical Form:** $f_1(x) = (20x + 32) \\p",
+  "size": 256,
+  "run": 3,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 2.5724234580993652,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 42.24951132779752,
+  "elapsed_s": 8.60805606842041,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each representing a single step in a larger computational pipeline. Each function applies a linear congruential transformation to an integer input `x`.\n\nHere is the breakdown of what each function does:\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\nWhere:\n- $A$ is a multiplier specific to the step.\n- $B$ is an additive constant specific to the step.\n- $M$ is the modulus specific to the step.\n\nThe modulus $M$ increases by 17 in each subsequent step (starting from 101). The multiplier $A$ generally increases by 13, but resets or changes pattern at certain intervals (e.g., Step 8, Step 15, Step 23).\n\n### Function-by-Function Explanation\n\n1.  **`transform_0000`**: Computes `(x * 7 + 3) % 101`.\n2.  **`transform_0001`**: Computes",
+  "size": 1000,
+  "run": 1,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 2.6066479682922363,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 42.375935943585574,
+  "elapsed_s": 8.624289989471436,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each representing a single step in a larger computational pipeline. Each function applies a **linear congruential transformation** to an integer input `x`, using the formula:\n\n```\nresult = (x * multiplier + addend) % modulus\n```\n\nThe parameters for each step follow a discernible pattern:\n\n- **Multiplier**: Increases by 13 each step, starting at 7, then wrapping around modulo 100 after reaching 99 (e.g., 7, 20, 33, ..., 99, then 14, 27, 40, ..., 99, then 15, 28, ...).\n- **Addend**: Increases by 29 each step, starting at 3, then wrapping around modulo 100 after reaching 99 (e.g., 3, 32, 61, 90, then 30, 59, 88, 28, then 57, 86, 26, ",
+  "size": 1000,
+  "run": 2,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 2.5989136695861816,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 42.92583455733752,
+  "elapsed_s": 8.539721727371216,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each representing a single step in a larger computational pipeline. Each function applies a **linear congruential transformation** to an integer input `x`, using the formula:\n\n```\nresult = (x * multiplier + addend) % modulus\n```\n\nThe parameters for each step follow a discernible pattern:\n\n- **Multiplier**: Increases by 13 each step, starting at 7, then wrapping around modulo 100 after reaching 99 (e.g., 7, 20, 33, ..., 99, then 14, 27, 40, ..., 99, then 15, 28, ...).\n- **Addend**: Increases by 29 each step, starting at 3, then wrapping around modulo 100 after reaching 99 (e.g., 3, 32, 61, 90, then 30, 59, 88, 28, then 57, 86, 26, ",
+  "size": 1000,
+  "run": 3,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 9.784254550933838,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 41.686418408278634,
+  "elapsed_s": 15.901414632797241,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters change systematically for each step. Below is a breakdown of the first few functions and the general trend, followed by the specific parameters for all defined functions.\n\n### Function-by-Function Explanation\n\n#### Step 0\n- **Function:** `transform_0000`\n- **Formula:** `(x * 7 + 3) % 101`\n- **Parameters:** Multiplier $A=7$, Additive $B=3$, Modulus $M=101$.\n\n#### Step 1\n- **Function:** `transform_0001`\n- **Formula:** `(x * 20 + 32) % 118`",
+  "size": 4096,
+  "run": 1,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 9.7672438621521,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 41.75809421948805,
+  "elapsed_s": 15.87393069267273,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters `A`, `B`, and `M` change for each step, creating a complex, multi-stage hash-like or encryption-like transformation pipeline.\n\n### Function-by-Function Breakdown\n\nHere is the specific logic for each function, extracted from the code:\n\n| Function | Step | Multiplier (A) | Additive (B) | Modulus (M) | Formula |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 | `(x * 7 + 3) % 101` |\n| `transform",
+  "size": 4096,
+  "run": 2,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 9.752191543579102,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 41.77519708756032,
+  "elapsed_s": 15.856362104415894,
+  "text": "This module defines a sequence of 98 transformation functions (`transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Formula\nEach function follows the pattern:\n$$ f(x) = (x \\cdot a + b) \\pmod m $$\n\nWhere:\n- $a$ is the **multiplier**.\n- $b$ is the **additive constant**.\n- $m$ is the **modulus**.\n\n### Function-by-Function Breakdown\n\nBelow is a table detailing the parameters ($a$, $b$, $m$) for each function. Note that the last function (`transform_0097`) is incomplete in the provided code snippet.\n\n| Function | Step | Multiplier ($a$) | Additive ($b$) | Modulus ($m$) | Formula |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 | `(x * 7 + 3) % 101` |\n|",
+  "size": 4096,
+  "run": 3,
+  "label": "llama-gpu-p1",
+  "fresh": true
+ }
+]

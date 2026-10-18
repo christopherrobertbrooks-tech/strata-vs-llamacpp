@@ -1,0 +1,3 @@
+0.23.809.897 I load_tensors: offloaded 49/49 layers to GPU
+0.23.810.157 I load_tensors:        CUDA0 model buffer size = 27904.26 MiB
+0.42.497.206 I sched_reserve: graph: nodes = 6908, splits = 2, input objects = 6, input tensors = 19

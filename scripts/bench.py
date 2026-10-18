@@ -75,6 +75,9 @@ def main():
     ap.add_argument("--label", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--sizes", default="256,1000,4096"); ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--max-tokens", type=int, default=256)
+    # round 2: every request starts with its own first line, so no engine can reuse an earlier prompt (the same lines
+    # for every engine: "Session <size>-<run>"), and a 1000-token throwaway warms the files up before the timed runs
+    ap.add_argument("--fresh", action="store_true")
     a = ap.parse_args()
     sizes = [int(s) for s in a.sizes.split(",")]
     if not os.path.exists(PROMPTS):
@@ -83,11 +86,14 @@ def main():
         json.dump(make_prompts(a.url, sizes), open(PROMPTS, "w"), indent=1)
     prompts = json.load(open(PROMPTS))
     one(a.url, a.engine, "Say hello.", 8)   # warm-up, not counted
+    if a.fresh:
+        one(a.url, a.engine, "Session warm-up\n" + prompts["1000"], 32)
     rows = []
     for n in sizes:
         for k in range(a.runs):
-            r = one(a.url, a.engine, prompts[str(n)], a.max_tokens)
-            r.update(size=n, run=k + 1, label=a.label)
+            content = (f"Session {n}-{k + 1}\n" if a.fresh else "") + prompts[str(n)]
+            r = one(a.url, a.engine, content, a.max_tokens)
+            r.update(size=n, run=k + 1, label=a.label, fresh=a.fresh)
             rows.append(r)
             print(f"{a.label} {n:5d} run {k + 1}: first token {r['ttft_s']:.2f} s, writing {r['decode_tok_s'] or 0:.1f} tok/s, "
                   f"{r['tokens']} tokens", flush=True)

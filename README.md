@@ -5,47 +5,69 @@ VRAM and fetching the rest when needed. [Strata](https://github.com/Niko1221/Str
 llama.cpp added its own, experimental, in October 2026 (`--moe-cache-mib`, PR #29887, build b11480). This repo
 compares them head to head on the same card, the same model file and the same small amount of RAM.
 
+**Result, in one line:** on this model and this card, Strata writes about **2.4x** faster and reads prompts about
+**2.9x** faster than llama.cpp at its best -- and still about 1.5x faster at writing with its draft helper removed. This
+is one model (Strata's home model) on one 2017 card; llama.cpp runs far more models and hardware, and on other models
+it can be the faster one (e.g. [Strata #2464](https://github.com/Niko1221/Strata/issues/2464), Qwen3.6 at long context).
+
 ## The setup
 
 | | |
 |---|---|
-| GPU | Tesla V100-PCIe 32 GB (sm_70, 2017), PCIe Gen3 x4 |
+| GPU | Tesla V100-PCIe 32 GB (sm_70, 2017), PCIe Gen3 x4 (3.3 GB/s measured) |
 | CPU / RAM | i7-13700KF, **16 GB** RAM |
 | Disk | NVMe (~2 GB/s) holding the model |
-| Model | Qwen3.8-Flash-Next GSQ-RCO Coder IQ1_M (`qwen4exp`, 48 layers x 256 experts, 10 per token), 58.4 GB in two GGUF parts: the same files for both engines |
-| Strata | 0.1.41 everyday config (resident RAM mode, `STRATA_SM70_TABLE=1`) |
-| llama.cpp | b11718 (`547208dca`), built for sm_70 with CUDA 12.9 |
+| Model | Qwen3.8-Flash-Next GSQ-RCO Coder IQ1_M (`qwen4exp`, 48 layers x 256 experts, 10 per token): the same two GGUF files for both engines (54.4 GiB: 23.4 GiB of experts, a 26.8 GiB per-layer lookup table that reads only a few rows per token, ~4 GiB core) |
+| Strata | 0.1.41, everyday config (resident RAM mode, `STRATA_SM70_TABLE=1`, MTP drafts `--spec 4`) |
+| llama.cpp | b11718 (`547208dca`), built for sm_70 with CUDA 12.9, `-fa on`, `-c 8192` |
 
-The model is far bigger than VRAM + RAM (32 + 16 GB), so whatever is not cached is read from the NVMe: the hard case
-for an expert cache, and one llama.cpp's write-up did not test (its tests had the experts in host RAM).
+## Method
 
-## The plan
+- One client for both ([scripts/bench.py](scripts/bench.py)): OpenAI chat requests, streamed, temperature 0,
+  presence_penalty 0, thinking off, 256 tokens out; prompts of 256 / 1000 / 4096 tokens made with the model's own
+  tokenizer. Timed on the client: first token (prompt reading) and first-to-last token (writing).
+- Round 2 (the numbers below): every request starts with its own line ("Session 4096-2") so no engine can reuse an
+  earlier prompt, plus a 1000-token warm-up. Each setup is a cold start on the V100 alone; 3 runs per size; the
+  llama.cpp control and Strata without the image reader ran twice, and the repeats agree within 1%.
 
-1. **Load check:** llama.cpp loads the model and gives sensible answers.
-2. **Cache-size sweep (overnight):** llama.cpp decode and prompt speed, and cache hit rate, at several `--moe-cache-mib`
-   sizes, fixed prompts, cold restarts.
-3. **Reference:** Strata on the same prompts.
-4. **Result:** a curve of llama.cpp speed against cache size, with Strata as the line to beat.
+## Results (round 2, fresh prompts)
 
-## First sweep (2026-10-18)
+Median tokens/s writing, and seconds to the first token:
 
-Writing speed, tokens/s, median of the warm runs (runs 2-3; each run 1 is a cold start), 256 tokens out, drafts as each
-engine ships them (Strata: MTP on, ~70% accepted; llama.cpp: none available for this model). Hit rate = llama.cpp's
-own count for single-token steps.
-
-| setting | cache hit rate | uploaded to the card | 256 | 1000 | 4096 |
+| setup | experts on the card | write 256 | write 1000 | write 4096 | first token, 4096-token prompt |
 |---|---|---|---|---|---|
-| llama.cpp, 24 GB cache (all experts) | 99.2% | 17.7 GB | 38.2 | 39.2 | 38.5 |
-| llama.cpp, 20 GB | 99.1% | 19.3 GB | 39.1 | 38.6 | 38.4 |
-| llama.cpp, 16 GB | 96.4% | 78.7 GB | 23.0 | 22.7 | 25.0 |
-| llama.cpp, 8 GB | 82.8% | 374.7 GB | 5.3 | 5.6 | 5.2 |
-| **Strata 0.1.41** (everyday) | ~95% in VRAM, rest in locked RAM | - | **95.8** | **88.2** | **81.8** |
+| llama.cpp, whole model on the GPU the normal way (no cache) | 100% | 42.9 | 42.4 | 41.7 | 9.8 s (~420 tok/s) |
+| llama.cpp, `--cpu-moe --moe-cache-mib 24000` | 100% (cache) | 35.2 | 37.5 | 37.3 | 13.2 s (~310 tok/s) |
+| Strata, image reader removed, `--spec 2` and no MTP drafter | 100% | 70.9 | 66.7 | 60.4 | 3.4 s (~1,200 tok/s) |
+| Strata, everyday (image reader on the GPU) | 95% + 5% in locked RAM | 92.4 | 88.5 | 84.8 | 3.4 s (~1,190 tok/s) |
+| **Strata, image reader removed** | 100% | **101.2** | **98.5** | **98.0** | **3.4 s (~1,210 tok/s)** |
 
-- Flat down to 20 GB, a cliff between 20 and 16 GB (3 points of hit rate = 4x the traffic over a PCIe Gen3 x4 slot),
-  collapse at 8 GB.
-- Even with every expert on the card llama.cpp writes at ~39 tok/s, about half of Strata. Its decode graph has 50
-  splits per token (one per layer: the cache maps the router's picks on the CPU).
-- Not yet fair: Strata drafts and llama.cpp can't here; prompt reading isn't measured right (the same prompt three
-  times, and the longer prompts share their start: both engines reuse it).
+- **Like for like** (every expert on the card, each engine's normal settings): Strata ~100 vs llama.cpp ~42 writing
+  (2.4x), ~1,200 vs ~420 tok/s reading (2.9x).
+- **Not just the drafts:** Strata's IQ pack refuses `--spec` below 2, but with the MTP drafter removed it still writes
+  61-71 tok/s, ~1.5x llama.cpp (which has no drafter for this model: the publisher ships no llama.cpp MTP head).
+- **llama.cpp's cache costs ~10%** writing vs loading the same experts normally: its decode graph has 50 splits per
+  token (the cache maps each layer's router picks on the CPU) against 2 without it.
 
-Next: drafts off for both, llama.cpp with everything on the GPU and no cache (the control), fresh prompts.
+## The cache-size sweep (round 1)
+
+llama.cpp with less cache than experts. Writing tok/s, warm runs (round 1 reused prompts, so its prompt times are not
+shown); hit rate and traffic are llama.cpp's own counters for single-token steps.
+
+| `--moe-cache-mib` | share of experts | hit rate | copied to the card | write 256 | 1000 | 4096 |
+|---|---|---|---|---|---|---|
+| 24000 | 100% | 99.2% | 17.7 GB | 38.2 | 39.2 | 38.5 |
+| 20000 | 83% | 99.1% | 19.3 GB | 39.1 | 38.6 | 38.4 |
+| 16000 | 67% | 96.4% | 78.7 GB | 23.0 | 22.7 | 25.0 |
+| 8000 | 33% | 82.8% | 374.7 GB | 5.3 | 5.6 | 5.2 |
+
+Flat down to 83% of the experts, then a cliff: three points of hit rate quadruple the traffic over a Gen3 x4 slot,
+and at a third of the experts the run is waiting on the NVMe most of the time.
+
+## Files
+
+- [scripts/](scripts): the client, both sweeps, the load check.
+- [results/2026-10-18-sweep1](results/2026-10-18-sweep1), [results/2026-10-18-round2](results/2026-10-18-round2): every
+  run (JSON with the replies), the sweep logs and each engine's own cache / split lines.
+
+Measured 2026-10-18 by christopherrobertbrooks-tech.

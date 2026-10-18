@@ -1,0 +1,110 @@
+[
+ {
+  "ttft_s": 9.488289833068848,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 21.042054203457884,
+  "elapsed_s": 21.609105825424194,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as linear congruential generators or LCGs) applied sequentially. Each function takes an integer `x` and returns a new integer computed using the formula:\n\n```\nf(x) = (a * x + c) % m\n```\n\nwhere:\n- `a` is a multiplier,\n- `c` is an increment,\n- `m` is a modulus.\n\nThese are commonly used in pseudorandom number generation, hashing, or cryptographic contexts (though these specific parameters are not cryptographically secure).\n\nLet\u2019s go through each function:\n\n---\n\n### `transform_0000(x: int) -> int`\n```python\nreturn (x * 7 + 3) % 101\n```\n- **Multiplier**: 7  \n- **Increment**: 3  \n- **Modulus**: 101  \n- **Purpose**: Applies a linear transformation modulo 101. This is the first step in a chain of transformations.\n\n---\n\n### `transform_0001(x: int) -> int`\n```python\nreturn (x * 20 + 32) %",
+  "size": 256,
+  "run": 1,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 2.3649487495422363,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 35.232550359967114,
+  "elapsed_s": 9.60264801979065,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific linear formula `(x * a + b) % m`, where `a` is a multiplier, `b` is an additive constant, and `m` is the modulus.\n\nHere is a breakdown of each function:\n\n### `transform_0000(x: int) -> int`\n*   **Formula:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input by 7, adds 3, and takes the remainder when divided by 101.\n*   **Parameters:** Multiplier = 7, Addend = 3, Modulus = 101.\n\n### `transform_0001(x: int) -> int`\n*   **Formula:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input by 20, adds 32, and takes the remainder when divided by 118.\n*   **Parameters:** Multiplier =",
+  "size": 256,
+  "run": 2,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 1.6445019245147705,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 39.36126805440836,
+  "elapsed_s": 8.123318433761597,
+  "text": "This module defines a sequence of **linear congruential transformations** (also known as affine transformations modulo a prime or composite number). Each function takes an integer `x` and applies a specific linear formula `(x * a + b) % m`, where `a` is a multiplier, `b` is an additive constant, and `m` is the modulus.\n\nHere is a breakdown of each function:\n\n### `transform_0000(x: int) -> int`\n*   **Formula:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input by 7, adds 3, and takes the remainder when divided by 101.\n*   **Parameters:** Multiplier = 7, Addend = 3, Modulus = 101.\n\n### `transform_0001(x: int) -> int`\n*   **Formula:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies the input by 20, adds 32, and takes the remainder when divided by 118.\n*   **Parameters:** Multiplier =",
+  "size": 256,
+  "run": 3,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 5.088096618652344,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 37.492055244884455,
+  "elapsed_s": 11.889623165130615,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each representing a single step in a linear congruential generator (LCG) or a similar affine transformation pipeline.\n\nHere is a function-by-function explanation:\n\n### **Step 0: `transform_0000`**\n*   **Operation:** `(x * 7 + 3) % 101`\n*   **Description:** Multiplies the input `x` by 7, adds 3, and takes the result modulo 101.\n*   **Parameters:** Multiplier = 7, Addend = 3, Modulus = 101.\n\n### **Step 1: `transform_0001`**\n*   **Operation:** `(x * 20 + 32) % 118`\n*   **Description:** Multiplies `x` by 20, adds 32, and takes the result modulo 118.\n*   **Parameters:** Multiplier = 20, Addend = 32, Modulus = 118.",
+  "size": 1000,
+  "run": 1,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 3.8916175365448,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 37.529397423608174,
+  "elapsed_s": 10.686357259750366,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each implementing a **linear congruential transformation** of the form:\n\n$$\nf(x) = (a \\cdot x + b) \\mod m\n$$\n\nwhere $a$, $b$, and $m$ are constants specific to each function. These functions are likely part of a larger cryptographic or pseudorandom number generation pipeline, where each step applies a different linear transformation modulo a different modulus.\n\n### Function-by-Function Explanation\n\nEach function takes an integer `x` and returns a new integer computed as `(x * a + b) % m`. Here's a breakdown of each:\n\n| Function | Formula | Parameters (a, b, m) | Description |\n|----------|---------|----------------------|-------------|\n| `transform_0000` | `(x * 7 + 3) % 101` | a=7, b=3, m=101 | Linear transform mod 101 |\n| `transform_0001` | `(x * 20 + 32) % ",
+  "size": 1000,
+  "run": 2,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 3.666074752807617,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 38.59076887039934,
+  "elapsed_s": 10.273942947387695,
+  "text": "This module defines a sequence of 24 transformation functions (labeled `transform_0000` through `transform_0023`), each implementing a **linear congruential transformation** of the form:\n\n```\nf(x) = (a * x + b) % m\n```\n\nwhere `a`, `b`, and `m` are constants specific to each step. These functions are likely part of a **multi-step cryptographic or hashing pipeline**, where the output of one step feeds into the next.\n\n### Function-by-Function Explanation\n\nEach function takes an integer `x` and returns a new integer computed via a linear congruential formula. Here's a breakdown of each:\n\n| Function | Formula | Purpose |\n|----------|---------|---------|\n| `transform_0000` | `(x * 7 + 3) % 101` | Step 0: Applies a linear transformation with multiplier 7, addend 3, modulus 101. |\n| `transform_0001` | `(x * 20 + 32) % 118` | Step 1: Multiplier 20, addend ",
+  "size": 1000,
+  "run": 3,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 16.259860515594482,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 37.26326362561543,
+  "elapsed_s": 23.103132963180542,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters follow specific arithmetic progressions, though there are some irregularities in the later steps.\n\n### Function-by-Function Breakdown\n\n| Function | Step | Multiplier (A) | Additive (B) | Modulus (M) | Formula |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 | `(x * 7 + 3) % 101` |\n| `transform_0001` | 1 | 20 | 32 | 118 | `(x * ",
+  "size": 4096,
+  "run": 1,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 13.23173999786377,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 37.1989590179939,
+  "elapsed_s": 20.08701205253601,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters `A`, `B`, and `M` change for each step, creating a complex, non-linear chain of operations if applied sequentially.\n\n### Function-by-Function Breakdown\n\nHere is the specific logic for each function, extracted from the code:\n\n| Function | Step | Multiplier (A) | Additive (B) | Modulus (M) | Formula |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 | `(x * 7 + 3) % 101` |\n| `transform_",
+  "size": 4096,
+  "run": 2,
+  "label": "llama-24000-p1",
+  "fresh": true
+ },
+ {
+  "ttft_s": 13.004156827926636,
+  "tokens": 256,
+  "chunks": 256,
+  "decode_tok_s": 38.0942128646366,
+  "elapsed_s": 19.698296308517456,
+  "text": "This module defines a sequence of 98 transformation functions (labeled `transform_0000` through `transform_0097`). Each function performs a **linear congruential transformation** on an integer input `x`.\n\n### General Pattern\nEach function follows the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\n\nWhere:\n- **A** is the multiplier.\n- **B** is the additive constant.\n- **M** is the modulus.\n\nThe parameters `A`, `B`, and `M` change for each step, creating a complex, non-linear chain of operations if applied sequentially.\n\n### Function-by-Function Breakdown\n\nHere is the specific logic for each function, extracted from the code:\n\n| Function | Step | Multiplier (A) | Additive (B) | Modulus (M) | Formula |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| `transform_0000` | 0 | 7 | 3 | 101 | `(x * 7 + 3) % 101` |\n| `transform_",
+  "size": 4096,
+  "run": 3,
+  "label": "llama-24000-p1",
+  "fresh": true
+ }
+]

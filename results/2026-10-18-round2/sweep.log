@@ -1,0 +1,92 @@
+12:07:39 START
+12:07:39 llama-gpu-p1: start
+12:08:25 llama-gpu-p1: up; V100 29207 MiB; nodes = 6908, splits = 2, input objects = 6, input tensors = 19 
+llama-gpu-p1   256 run 1: first token 1.10 s, writing 42.4 tok/s, 256 tokens
+llama-gpu-p1   256 run 2: first token 1.05 s, writing 42.9 tok/s, 256 tokens
+llama-gpu-p1   256 run 3: first token 1.05 s, writing 43.0 tok/s, 256 tokens
+llama-gpu-p1  1000 run 1: first token 2.57 s, writing 42.2 tok/s, 256 tokens
+llama-gpu-p1  1000 run 2: first token 2.61 s, writing 42.4 tok/s, 256 tokens
+llama-gpu-p1  1000 run 3: first token 2.60 s, writing 42.9 tok/s, 256 tokens
+llama-gpu-p1  4096 run 1: first token 9.78 s, writing 41.7 tok/s, 256 tokens
+llama-gpu-p1  4096 run 2: first token 9.77 s, writing 41.8 tok/s, 256 tokens
+llama-gpu-p1  4096 run 3: first token 9.75 s, writing 41.8 tok/s, 256 tokens
+12:10:07 llama-gpu-p1: done
+12:10:07 strata-nn-p1: start
+12:10:12 strata-nn-p1: NOT UP (  strata generate: PCIe probe: 3.3 GB/s host->device (best of 3.3 3.3 3.3 3.3) -> pcie_frac 0.09 (default 0.55)   strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)   strata generate: /mnt/steam/Strata-data-0140/packs/coder-iq1_m is a native (IQ) pack: it needs --native SHARD1, --spec T (T >= 2) and --prefill CHUNK )
+12:10:15 llama-24000-p1: start
+12:10:46 llama-24000-p1: up; V100 29531 MiB; CUDA0 MoE cache size = 23988.87 MiB for 23981.25 MiB of host experts nodes = 6915 / 7244, splits = 144 / 50, input objects = 6 / 6, input tensors = 19 / 19 
+llama-24000-p1   256 run 1: first token 9.49 s, writing 21.0 tok/s, 256 tokens
+llama-24000-p1   256 run 2: first token 2.36 s, writing 35.2 tok/s, 256 tokens
+llama-24000-p1   256 run 3: first token 1.64 s, writing 39.4 tok/s, 256 tokens
+llama-24000-p1  1000 run 1: first token 5.09 s, writing 37.5 tok/s, 256 tokens
+llama-24000-p1  1000 run 2: first token 3.89 s, writing 37.5 tok/s, 256 tokens
+llama-24000-p1  1000 run 3: first token 3.67 s, writing 38.6 tok/s, 256 tokens
+llama-24000-p1  4096 run 1: first token 16.26 s, writing 37.3 tok/s, 256 tokens
+llama-24000-p1  4096 run 2: first token 13.23 s, writing 37.2 tok/s, 256 tokens
+llama-24000-p1  4096 run 3: first token 13.00 s, writing 38.1 tok/s, 256 tokens
+12:13:48 llama-24000-p1: done
+12:13:48 strata-day-p1: start
+12:14:24 strata-day-p1: up; V100 32007 MiB; expert cache 11642 slots, 22.19 GiB of VRAM
+strata-day-p1   256 run 1: first token 0.96 s, writing 86.8 tok/s, 256 tokens
+strata-day-p1   256 run 2: first token 0.93 s, writing 95.8 tok/s, 256 tokens
+strata-day-p1   256 run 3: first token 0.92 s, writing 92.4 tok/s, 256 tokens
+strata-day-p1  1000 run 1: first token 1.56 s, writing 88.5 tok/s, 256 tokens
+strata-day-p1  1000 run 2: first token 1.54 s, writing 87.9 tok/s, 256 tokens
+strata-day-p1  1000 run 3: first token 1.54 s, writing 91.9 tok/s, 256 tokens
+strata-day-p1  4096 run 1: first token 3.46 s, writing 83.1 tok/s, 256 tokens
+strata-day-p1  4096 run 2: first token 3.39 s, writing 84.8 tok/s, 256 tokens
+strata-day-p1  4096 run 3: first token 3.43 s, writing 94.4 tok/s, 256 tokens
+12:15:14 strata-day-p1: done
+12:15:14 strata-nn-p2: start
+12:15:19 strata-nn-p2: NOT UP (  strata generate: PCIe probe: 3.3 GB/s host->device (best of 3.3 3.3 3.3 3.3) -> pcie_frac 0.09 (default 0.55)   strata generate: this CPU has no AVX-512: the expert kernels run on AVX-2 (multi-token for the i-quant gate/up rows)   strata generate: /mnt/steam/Strata-data-0140/packs/coder-iq1_m is a native (IQ) pack: it needs --native SHARD1, --spec T (T >= 2) and --prefill CHUNK )
+12:15:22 llama-gpu-p2: start
+12:16:03 llama-gpu-p2: up; V100 29207 MiB; nodes = 6908, splits = 2, input objects = 6, input tensors = 19 
+llama-gpu-p2   256 run 1: first token 1.10 s, writing 42.4 tok/s, 256 tokens
+llama-gpu-p2   256 run 2: first token 1.06 s, writing 42.8 tok/s, 256 tokens
+llama-gpu-p2   256 run 3: first token 1.08 s, writing 42.9 tok/s, 256 tokens
+llama-gpu-p2  1000 run 1: first token 2.59 s, writing 42.0 tok/s, 256 tokens
+llama-gpu-p2  1000 run 2: first token 2.60 s, writing 42.3 tok/s, 256 tokens
+llama-gpu-p2  1000 run 3: first token 2.60 s, writing 42.9 tok/s, 256 tokens
+llama-gpu-p2  4096 run 1: first token 9.80 s, writing 41.2 tok/s, 256 tokens
+llama-gpu-p2  4096 run 2: first token 9.78 s, writing 41.6 tok/s, 256 tokens
+llama-gpu-p2  4096 run 3: first token 9.74 s, writing 41.8 tok/s, 256 tokens
+12:17:46 llama-gpu-p2: done
+12:17:46 ALL DONE; V100 11 MiB
+12:17:48 ROUND 2b START
+12:17:48 strata-novision-p1: start
+12:18:21 strata-novision-p1: up; V100 31833 MiB; expert cache 12288 slots, 23.42 GiB of VRAM
+strata-novision-p1   256 run 1: first token 0.86 s, writing 99.9 tok/s, 256 tokens
+strata-novision-p1   256 run 2: first token 0.85 s, writing 107.1 tok/s, 256 tokens
+strata-novision-p1   256 run 3: first token 0.86 s, writing 101.2 tok/s, 256 tokens
+strata-novision-p1  1000 run 1: first token 1.49 s, writing 98.4 tok/s, 256 tokens
+strata-novision-p1  1000 run 2: first token 1.49 s, writing 97.6 tok/s, 256 tokens
+strata-novision-p1  1000 run 3: first token 1.49 s, writing 99.9 tok/s, 256 tokens
+strata-novision-p1  4096 run 1: first token 3.43 s, writing 98.0 tok/s, 256 tokens
+strata-novision-p1  4096 run 2: first token 3.36 s, writing 93.6 tok/s, 256 tokens
+strata-novision-p1  4096 run 3: first token 3.36 s, writing 103.2 tok/s, 256 tokens
+12:19:08 strata-novision-p1: done
+12:19:08 strata-spec2-nomtp-p1: start
+12:19:39 strata-spec2-nomtp-p1: up; V100 30645 MiB; expert cache 12288 slots, 23.42 GiB of VRAM
+strata-spec2-nomtp-p1   256 run 1: first token 0.86 s, writing 70.0 tok/s, 256 tokens
+strata-spec2-nomtp-p1   256 run 2: first token 0.87 s, writing 76.3 tok/s, 256 tokens
+strata-spec2-nomtp-p1   256 run 3: first token 0.87 s, writing 70.9 tok/s, 256 tokens
+strata-spec2-nomtp-p1  1000 run 1: first token 1.49 s, writing 61.3 tok/s, 256 tokens
+strata-spec2-nomtp-p1  1000 run 2: first token 1.50 s, writing 66.7 tok/s, 256 tokens
+strata-spec2-nomtp-p1  1000 run 3: first token 1.50 s, writing 67.7 tok/s, 256 tokens
+strata-spec2-nomtp-p1  4096 run 1: first token 3.44 s, writing 60.0 tok/s, 256 tokens
+strata-spec2-nomtp-p1  4096 run 2: first token 3.40 s, writing 61.6 tok/s, 256 tokens
+strata-spec2-nomtp-p1  4096 run 3: first token 3.36 s, writing 60.4 tok/s, 256 tokens
+12:20:38 strata-spec2-nomtp-p1: done
+12:20:38 strata-novision-p2: start
+12:21:10 strata-novision-p2: up; V100 31833 MiB; expert cache 12288 slots, 23.42 GiB of VRAM
+strata-novision-p2   256 run 1: first token 0.85 s, writing 100.0 tok/s, 256 tokens
+strata-novision-p2   256 run 2: first token 0.86 s, writing 107.1 tok/s, 256 tokens
+strata-novision-p2   256 run 3: first token 0.85 s, writing 101.2 tok/s, 256 tokens
+strata-novision-p2  1000 run 1: first token 1.51 s, writing 98.5 tok/s, 256 tokens
+strata-novision-p2  1000 run 2: first token 1.49 s, writing 97.6 tok/s, 256 tokens
+strata-novision-p2  1000 run 3: first token 1.48 s, writing 99.8 tok/s, 256 tokens
+strata-novision-p2  4096 run 1: first token 3.44 s, writing 97.9 tok/s, 256 tokens
+strata-novision-p2  4096 run 2: first token 3.36 s, writing 93.4 tok/s, 256 tokens
+strata-novision-p2  4096 run 3: first token 3.41 s, writing 103.2 tok/s, 256 tokens
+12:21:57 strata-novision-p2: done
+12:21:57 ROUND 2b DONE; V100 11 MiB
